@@ -36,5 +36,3 @@ CREATE TABLE asistencias (
     presente BOOLEAN DEFAULT FALSE,
     trajo_biblia BOOLEAN DEFAULT FALSE
 );
-
-kogryx-seDzyx-9ruhgy
