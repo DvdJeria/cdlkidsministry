@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text="Volver"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="font-weight: 700;">Toma de Asistencia</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" color="light">
+
+  <!-- Selector de Maestro y Fecha -->
+  <ion-card style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 20px;">
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-select label="Maestro a cargo:" label-placement="stacked" [(ngModel)]="maestroId" placeholder="Selecciona un maestro">
+          <ion-select-option *ngFor="let m of maestros" [value]="m.ma_id">
+            {{ m.ma_nombre }} {{ m.ma_apellido }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item lines="none" class="ion-margin-top">
+        <ion-input label="Fecha de la clase:" label-placement="stacked" type="date" [(ngModel)]="fechaClase"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Lista de Niños -->
+  <div style="margin-bottom: 12px;">
+    <ion-text color="dark">
+      <h3 style="font-weight: 700; font-size: 1.1rem; padding-left: 4px;">Listado de Niños ({{ ninos.length }})</h3>
+    </ion-text>
+  </div>
+
+  <ion-card *ngFor="let nino of ninos" style="border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.04); margin-bottom: 12px;">
+    <ion-card-content style="padding: 12px 16px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <ion-text color="dark">
+          <h2 style="font-size: 1.05rem; font-weight: 600; margin: 0;">
+            {{ nino.ni_nombre }} {{ nino.ni_apellido }}
+          </h2>
+        </ion-text>
+      </div>
+
+      <div style="display: flex; gap: 20px; align-items: center; border-top: 1px solid var(--ion-color-step-100, #f0f0f0); padding-top: 8px;">
+        <ion-checkbox [(ngModel)]="nino.presente" labelPlacement="end" justify="start">
+          <span style="font-size: 0.9rem; font-weight: 500;">Presente</span>
+        </ion-checkbox>
+
+        <ion-checkbox [(ngModel)]="nino.trajo_biblia" labelPlacement="end" justify="start">
+          <span style="font-size: 0.9rem; font-weight: 500;">Trajo Biblia</span>
+        </ion-checkbox>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Botón Guardar -->
+  <div class="ion-padding-vertical" style="margin-bottom: 30px;">
+    <ion-button expand="block" shape="round" color="primary" size="large" (click)="guardarAsistencia()" [disabled]="guardando" style="font-weight: 600;">
+      {{ guardando ? 'Guardando asistencia...' : 'Guardar Asistencia' }}
+    </ion-button>
+  </div>
+
+</ion-content>
