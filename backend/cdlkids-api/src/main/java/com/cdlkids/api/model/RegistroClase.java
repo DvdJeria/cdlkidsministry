@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDate;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Data
 @Entity
@@ -24,7 +25,8 @@ public class RegistroClase {
     private LocalDate fecha;
 
     @Column(name = "observacion_general")
-    private String observacionGeneral;
+    @JsonProperty("observacion_general")
+    private String observacion_general;
 
     // Relación para guardar las asistencias de los niños junto con el registro del día
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
