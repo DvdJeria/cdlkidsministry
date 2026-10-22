@@ -54,12 +54,13 @@ export class AsistenciaService {
     curId: number,
     maId: number,
     fecha: string,
-    ninos: Nino[]
+    ninos: Nino[],
+    observacion: string
   ): Promise<any> {
     // A. Insertar el registro de clase principal
     const { data: regData, error: regError } = await supabase
       .from('registros_clase')
-      .insert([{ cur_id: curId, ma_id: maId, fecha: fecha, observacion_general: 'Clase regular' }])
+      .insert([{ cur_id: curId, ma_id: maId, fecha: fecha, observacion_general: observacion }])
       .select()
       .single();
 

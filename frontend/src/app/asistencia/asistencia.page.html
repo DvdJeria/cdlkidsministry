@@ -9,19 +9,15 @@
 
 <ion-content class="ion-padding" color="light">
 
-  <!-- Selector de Maestro y Fecha -->
+  <!-- Selector de Maestro -->
   <ion-card style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 20px;">
     <ion-card-content>
       <ion-item lines="none">
-        <ion-select label="Maestro a cargo:" label-placement="stacked" [(ngModel)]="maestroId" placeholder="Selecciona un maestro">
+        <ion-select label="Maestro a cargo:" label-placement="stacked" [value]="maestroId" (ionChange)="maestroId = $event.detail.value" placeholder="Selecciona un maestro">
           <ion-select-option *ngFor="let m of maestros" [value]="m.ma_id">
             {{ m.ma_nombre }} {{ m.ma_apellido }}
           </ion-select-option>
         </ion-select>
-      </ion-item>
-
-      <ion-item lines="none" class="ion-margin-top">
-        <ion-input label="Fecha de la clase:" label-placement="stacked" type="date" [(ngModel)]="fechaClase"></ion-input>
       </ion-item>
     </ion-card-content>
   </ion-card>
@@ -44,14 +40,30 @@
       </div>
 
       <div style="display: flex; gap: 20px; align-items: center; border-top: 1px solid var(--ion-color-step-100, #f0f0f0); padding-top: 8px;">
-        <ion-checkbox [(ngModel)]="nino.presente" labelPlacement="end" justify="start">
+        <ion-checkbox [checked]="nino.presente" (ionChange)="nino.presente = $event.detail.checked" labelPlacement="end" justify="start">
           <span style="font-size: 0.9rem; font-weight: 500;">Presente</span>
         </ion-checkbox>
 
-        <ion-checkbox [(ngModel)]="nino.trajo_biblia" labelPlacement="end" justify="start">
+        <ion-checkbox [checked]="nino.trajo_biblia" (ionChange)="nino.trajo_biblia = $event.detail.checked" labelPlacement="end" justify="start">
           <span style="font-size: 0.9rem; font-weight: 500;">Trajo Biblia</span>
         </ion-checkbox>
       </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); margin-bottom: 20px;">
+    <ion-card-content>
+      <ion-item lines="none">
+        <ion-textarea
+          label="Observaciones de la clase:"
+          label-placement="stacked"
+          placeholder="Escribe algún comentario o detalle de la clase..."
+          [value]="observacion"
+          (ionInput)="observacion = $event.detail.value || ''"
+          rows="3"
+          autoGrow="true">
+        </ion-textarea>
+      </ion-item>
     </ion-card-content>
   </ion-card>
 

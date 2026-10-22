@@ -23,7 +23,7 @@ export interface RegistroClasePayload {
   cur_id: number;
   ma_id: number;
   fecha: string;
-  observacion_general?: string;
+  observacion_general: string;
 }
 
 export interface AsistenciaItemPayload {
