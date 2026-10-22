@@ -3,14 +3,31 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AsistenciaService } from '../services/asistencia.service';
 import { Curso } from '../model/asistencia.model';
+import {
+  IonContent,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonCard,
+  IonCardContent,
+  IonButton
+} from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   standalone: true,
-  imports: [CommonModule],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  imports: [CommonModule,
+  IonContent,
+  IonGrid,
+  IonRow,
+  IonCol,
+  IonCard,
+  IonCardContent,
+  IonButton
+]
+  //schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomePage implements OnInit {
   cursos: Curso[] = [];
