@@ -1,17 +1,50 @@
-import { Component, OnInit, ChangeDetectorRef, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AsistenciaService } from '../services/asistencia.service';
 import { Maestro, Nino } from '../model/asistencia.model';
 import {IonicModule} from "@ionic/angular/lazy";
+import {
+  IonHeader,
+  IonToolbar,
+  IonButtons,
+  IonBackButton,
+  IonTitle,
+  IonContent,
+  IonCard,
+  IonCardContent,
+  IonItem,
+  IonSelect,
+  IonSelectOption,
+  IonText,
+  IonCheckbox,
+  IonTextarea,
+  IonButton
+} from '@ionic/angular';
 
 @Component({
   selector: 'app-asistencia',
   templateUrl: './asistencia.page.html',
   styleUrls: ['./asistencia.page.scss'],
   standalone: true,
-  imports: [CommonModule, IonicModule],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  imports: [
+    CommonModule,
+    IonHeader,
+    IonToolbar,
+    IonButtons,
+    IonBackButton,
+    IonTitle,
+    IonContent,
+    IonCard,
+    IonCardContent,
+    IonItem,
+    IonSelect,
+    IonSelectOption,
+    IonText,
+    IonCheckbox,
+    IonTextarea,
+    IonButton
+  ]
 })
 export class AsistenciaPage implements OnInit {
   private route = inject(ActivatedRoute);

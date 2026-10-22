@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AsistenciaService } from '../services/asistencia.service';
@@ -27,17 +27,17 @@ import {
   IonCardContent,
   IonButton
 ]
-  //schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
+
 export class HomePage implements OnInit {
+
+  private asistenciaService = inject(AsistenciaService);
+  private router = inject(Router);
+  private cdr = inject(ChangeDetectorRef);
   cursos: Curso[] = [];
   cargando: boolean = true;
 
-  constructor(
-    private asistenciaService: AsistenciaService,
-    private router: Router,
-    private cdr: ChangeDetectorRef
-  ) {}
+  constructor() {}
 
   ngOnInit() {
     this.cargarCursos();
