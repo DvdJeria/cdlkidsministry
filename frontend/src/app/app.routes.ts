@@ -39,5 +39,10 @@ export const routes: Routes = [
     path: 'historial-detalle/:fecha/:cursoId',
     loadComponent: () => import('./pages/historial/historial-detalle/historial-detalle.component').then(m => m.HistorialDetalleComponent),
     canActivate: [authGuard]
+  },
+  {
+    path: 'ninos',
+    loadComponent: () => import('./pages/ninos/ninos.component').then(m => m.NinosComponent),
+    canActivate: [authGuard]
   }
 ];

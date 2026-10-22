@@ -16,7 +16,8 @@ CREATE TABLE ninos (
     ni_id SERIAL PRIMARY KEY,
     ni_nombre VARCHAR(150) NOT NULL,
     ni_apellido VARCHAR(150) NOT NULL,
-    cur_id INTEGER REFERENCES cursos(cur_id) ON DELETE CASCADE
+    cur_id INTEGER REFERENCES cursos(cur_id) ON DELETE CASCADE,
+    is_deleted BOOLEAN DEFAULT FALSE NOT NULL
 );
 
 -- 4. Tabla de Registros de Clase (Para la observación general del día)

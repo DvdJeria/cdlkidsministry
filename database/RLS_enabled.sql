@@ -63,3 +63,20 @@ CREATE POLICY "Permitir insercion de asistencias"
 ON asistencias 
 FOR INSERT 
 WITH CHECK (true);
+
+-- =====================================================================
+-- 7. TABLA: ninos / (UPDATE)
+-- =====================================================================
+CREATE POLICY "Permitir actualizar ninos"
+ON ninos
+FOR UPDATE
+USING (true)
+WITH CHECK (true);
+
+-- =====================================================================
+-- 8. TABLA: ninos / (POST)
+-- =====================================================================
+CREATE POLICY "Permitir insertar ninos"
+ON ninos
+FOR INSERT
+WITH CHECK (true);
