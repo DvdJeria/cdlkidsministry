@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Panel Administrativo</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()" color="light">
+        Cerrar Sesión
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div style="max-width: 600px; margin: 20px auto;">
+    <h2 style="font-weight: bold; margin-bottom: 5px;">¡Bienvenido!</h2>
+    <p style="color: var(--ion-color-medium); margin-bottom: 25px;">Selecciona una opción para gestionar los datos del ministerio:</p>
+
+    <!-- Tarjetas de Navegación del Panel -->
+    <ion-card routerLink="/admin/ninos" style="cursor: pointer; margin-bottom: 16px; border-radius: 12px;">
+      <ion-card-header>
+        <ion-card-title>Gestión de Niños</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Agrega, edita o visualiza los niños registrados en las diferentes categorías de edades.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card routerLink="/admin/maestros" style="cursor: pointer; margin-bottom: 16px; border-radius: 12px;">
+      <ion-card-header>
+        <ion-card-title>Gestión de Maestros</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Consulta y administra el personal a cargo de las clases y actividades.
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card routerLink="/admin/asistencias" style="cursor: pointer; margin-bottom: 16px; border-radius: 12px;">
+      <ion-card-header>
+        <ion-card-title>Historial de Asistencias</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        Revisa los registros pasados de asistencia y las clases impartidas.
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,9 +1,8 @@
 import { Component, OnInit, ChangeDetectorRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { AsistenciaService } from '../services/asistencia.service';
 import { Maestro, Nino } from '../model/asistencia.model';
-import {IonicModule} from "@ionic/angular/lazy";
 import {
   IonHeader,
   IonToolbar,
@@ -19,8 +18,12 @@ import {
   IonText,
   IonCheckbox,
   IonTextarea,
-  IonButton
+  IonButton,
+  IonIcon
 } from '@ionic/angular';
+
+import { addIcons } from 'ionicons';
+import { logInOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-asistencia',
@@ -43,7 +46,9 @@ import {
     IonText,
     IonCheckbox,
     IonTextarea,
-    IonButton
+    IonButton,
+    IonIcon,
+    RouterLink
   ]
 })
 export class AsistenciaPage implements OnInit {
@@ -59,6 +64,11 @@ export class AsistenciaPage implements OnInit {
   fechaClase: string = '';
   observacion: string = '';
   guardando: boolean = false;
+
+  constructor() {
+    // Registramos el icono del login para que Ionic lo renderice correctamente
+    addIcons({ logInOutline });
+  }
 
   ngOnInit() {
     const today = new Date();

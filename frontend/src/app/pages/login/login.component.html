@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Acceso Administrativo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div style="display: flex; justify-content: center; align-items: center; height: 85vh;">
+    <ion-card style="width: 100%; max-width: 400px; padding: 16px; border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+      <ion-card-header class="ion-text-center">
+        <ion-card-title>CDL Kids</ion-card-title>
+        <p style="color: var(--ion-color-medium); font-size: 14px; margin-top: 5px;">Inicia sesión para gestionar el sistema</p>
+      </ion-card-header>
+
+      <ion-card-content>
+        <form (ngSubmit)="onLogin()">
+          <ion-item class="ion-margin-bottom" lines="inset">
+            <ion-label position="floating">Correo o Usuario</ion-label>
+            <ion-input type="email" [(ngModel)]="email" name="email" required></ion-input>
+          </ion-item>
+
+          <ion-item class="ion-margin-bottom" lines="inset">
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-input type="password" [(ngModel)]="password" name="password" required></ion-input>
+          </ion-item>
+
+          <ion-button expand="block" type="submit" [disabled]="isLoading" class="ion-margin-top">
+            {{ isLoading ? 'Validando...' : 'Ingresar al Sistema' }}
+          </ion-button>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ion-toast
+    [isOpen]="showToast"
+    [message]="errorMessage"
+    [duration]="3000"
+    color="danger"
+    (didDismiss)="showToast = false">
+  </ion-toast>
+</ion-content>

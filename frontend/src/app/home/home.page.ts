@@ -1,6 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AsistenciaService } from '../services/asistencia.service';
 import { Curso } from '../model/asistencia.model';
 import {
@@ -10,8 +10,16 @@ import {
   IonCol,
   IonCard,
   IonCardContent,
-  IonButton
+  IonButton,
+  IonHeader,
+  IonTitle,
+  IonToolbar,
+  IonButtons,
+  IonIcon
 } from '@ionic/angular';
+
+import { addIcons } from 'ionicons';
+import { logInOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-home',
@@ -25,7 +33,14 @@ import {
   IonCol,
   IonCard,
   IonCardContent,
-  IonButton
+  IonButton,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+    IonButtons,
+    IonButton,
+    IonIcon,
+    RouterLink
 ]
 })
 
@@ -37,7 +52,9 @@ export class HomePage implements OnInit {
   cursos: Curso[] = [];
   cargando: boolean = true;
 
-  constructor() {}
+  constructor() {
+    addIcons({ logInOutline });
+  }
 
   ngOnInit() {
     this.cargarCursos();
