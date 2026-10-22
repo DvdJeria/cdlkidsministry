@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/admin" text="Volver"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="font-weight: 700;">Historial de Asistencias</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div style="margin-bottom: 16px;">
+    <ion-text>
+      <h3 style="font-weight: 700; font-size: 1.1rem; padding-left: 4px;">Selecciona una Fecha</h3>
+    </ion-text>
+  </div>
+
+  @if (cargando) {
+    <div style="text-align: center; padding: 40px;">
+      <ion-spinner name="crescent" color="primary"></ion-spinner>
+      <p style="margin-top: 10px; font-size: 0.9rem;">Cargando historial...</p>
+    </div>
+  } @else {
+
+    @if (historialAgrupado.length === 0) {
+      <div style="text-align: center; padding: 40px;">
+        <p style="margin: 0;">No hay registros de clases guardados todavía.</p>
+      </div>
+    } @else {
+
+      <ion-accordion-group style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+
+        @for (grupo of historialAgrupado; track grupo.fecha) {
+          <ion-accordion [value]="grupo.fecha" style="margin-bottom: 8px; border-radius: 8px;">
+            <ion-item slot="header">
+              <ion-label style="font-weight: 600;">{{ grupo.fecha }}</ion-label>
+            </ion-item>
+
+            <!-- Contenido desplegable -->
+            <div slot="content" style="padding: 12px;">
+              <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 12px;">Cursos con asistencia registrada:</p>
+
+              <ion-list lines="none" style="background: transparent;">
+
+                @for (curso of grupo.cursos; track curso.curId) {
+                  <ion-item button (click)="verDetalleCurso(grupo.fecha, curso.curId)" style="margin-bottom: 6px; border-radius: 8px;">
+                    <ion-label style="font-weight: 500;">{{ curso.nombre }}</ion-label>
+                    <ion-icon name="chevron-forward-outline" slot="end" color="medium"></ion-icon>
+                  </ion-item>
+                }
+
+              </ion-list>
+            </div>
+          </ion-accordion>
+        }
+
+      </ion-accordion-group>
+    }
+  }
+
+</ion-content>

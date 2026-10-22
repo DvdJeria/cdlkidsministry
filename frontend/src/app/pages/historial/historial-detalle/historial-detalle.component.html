@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="'/historial'" text="Volver"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="font-weight: 700;">Detalle de Asistencia</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="exportarPdf()" title="Imprimir PDF">
+        <ion-icon name="print-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  @if (cargando) {
+    <div style="text-align: center; padding: 40px;">
+      <ion-spinner name="crescent" color="primary"></ion-spinner>
+      <p style="margin-top: 10px; font-size: 0.9rem;">Cargando detalle...</p>
+    </div>
+  } @else {
+
+    <ion-card style="margin-bottom: 16px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+      <ion-card-content>
+        <h2 style="font-weight: 700; font-size: 1.2rem; margin-bottom: 4px;">{{ nombreCurso }}</h2>
+        <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: 12px;">Fecha: {{ fecha }}</p>
+
+        <div style="border-top: 1px solid rgba(0,0,0,0.1); padding-top: 8px;">
+          <p style="font-weight: 600; font-size: 0.85rem; margin-bottom: 4px;">Observacion General:</p>
+          <p style="font-size: 0.9rem; margin: 0; opacity: 0.9;">{{ observacionGeneral }}</p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <div style="margin-bottom: 12px;">
+      <ion-text>
+        <h3 style="font-weight: 700; font-size: 1.05rem; padding-left: 4px;">Listado de Alumnos</h3>
+      </ion-text>
+    </div>
+
+    @if (ninosAsistencia.length === 0) {
+      <div style="text-align: center; padding: 40px;">
+        <p style="margin: 0;">No hay niños registrados en este curso.</p>
+      </div>
+    } @else {
+      <ion-list lines="full" style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        @for (nino of ninosAsistencia; track nino.ni_id) {
+          <ion-item>
+            <ion-label>
+              <h2 style="font-weight: 600; font-size: 1rem;">{{ nino.nombreCompleto }}</h2>
+            </ion-label>
+
+            <div slot="end" style="display: flex; gap: 8px; align-items: center;">
+              @if (nino.presente) {
+                <ion-badge color="success" class="badge-estado">Presente</ion-badge>
+              } @else {
+                <ion-badge color="danger" class="badge-estado">Ausente</ion-badge>
+              }
+
+              @if (nino.trajoBiblia) {
+                <ion-badge color="tertiary" class="badge-estado">Biblia</ion-badge>
+              } @else {
+                <ion-badge color="medium"  class="badge-estado">Sin Biblia</ion-badge>
+              }
+            </div>
+          </ion-item>
+        }
+      </ion-list>
+    }
+  }
+
+</ion-content>

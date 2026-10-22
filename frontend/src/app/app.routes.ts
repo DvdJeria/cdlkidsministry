@@ -29,5 +29,15 @@ export const routes: Routes = [
     path: 'asistencia',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'historial',
+    loadComponent: () => import('./pages/historial/historial.component').then(m => m.HistorialComponent),
+    canActivate: [authGuard]
+  },
+  {
+    path: 'historial-detalle/:fecha/:cursoId',
+    loadComponent: () => import('./pages/historial/historial-detalle/historial-detalle.component').then(m => m.HistorialDetalleComponent),
+    canActivate: [authGuard]
   }
 ];

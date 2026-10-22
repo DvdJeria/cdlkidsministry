@@ -4,7 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import {
   IonContent, IonHeader, IonTitle, IonToolbar, IonButtons,
   IonButton, IonCard, IonCardHeader, IonCardTitle, IonCardContent,
-  IonList, IonItem, IonLabel
+  IonIcon
 } from '@ionic/angular';
 import { AuthService } from '../../services/auth';
 
@@ -16,7 +16,7 @@ import { AuthService } from '../../services/auth';
   imports: [
     CommonModule, RouterLink, IonContent, IonHeader, IonTitle, IonToolbar,
     IonButtons, IonButton, IonCard, IonCardHeader, IonCardTitle,
-    IonCardContent
+    IonCardContent, IonIcon
   ]
 })
 export class AdminComponent {

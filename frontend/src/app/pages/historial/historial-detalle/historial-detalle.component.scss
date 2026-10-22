@@ -1,0 +1,26 @@
+.badge-estado {
+  min-width: 100px;
+  text-align: left;
+  padding-left: 10px;
+  display: inline-block;
+}
+
+@media print {
+  // Ocultar la barra superior y los botones al imprimir
+  ion-header,
+  ion-back-button,
+  ion-button {
+    display: none !important;
+  }
+
+  // Asegurar fondo blanco y texto negro para el reporte
+  ion-content {
+    --background: white !important;
+    color: black !important;
+  }
+
+  ion-card {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
+}
