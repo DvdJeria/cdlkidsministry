@@ -1,10 +1,17 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home" text="Volver"></ion-back-button>
+      <ion-back-button defaultHref="/home" text=""></ion-back-button>
     </ion-buttons>
 
-    <ion-title style="font-weight: 700;">Toma de Asistencia</ion-title>
+    <ion-title>
+      <div class="header-with-title">
+        <a routerLink="/home" class="logo-link">
+          <img src="assets/icon/favicon.png" alt="CDL Kids Logo" class="header-logo" />
+        </a>
+        <span class="page-title-text">Toma de Asistencia</span>
+      </div>
+    </ion-title>
 
     <!-- Botón de acceso al Login -->
     <ion-buttons slot="end">

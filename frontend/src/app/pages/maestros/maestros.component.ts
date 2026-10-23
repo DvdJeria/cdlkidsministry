@@ -9,6 +9,7 @@ import {
 import { addIcons } from 'ionicons';
 import { addOutline, createOutline, trashOutline, printOutline } from 'ionicons/icons';
 import { supabase } from '../../services/supabase.client';
+import { RouterLink } from '@angular/router';
 
 interface Maestro {
   ma_id?: number;
@@ -26,7 +27,7 @@ interface Maestro {
     CommonModule, FormsModule,
     IonContent, IonHeader, IonTitle, IonToolbar, IonButtons,
     IonButton, IonIcon, IonList, IonItem, IonLabel, IonSpinner,
-    IonModal, IonInput, IonAlert, IonBackButton
+    IonModal, IonInput, IonAlert, IonBackButton, RouterLink
   ]
 })
 export class MaestrosComponent implements OnInit {

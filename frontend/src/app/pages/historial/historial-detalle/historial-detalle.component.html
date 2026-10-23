@@ -1,9 +1,18 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-back-button [defaultHref]="'/historial'" text="Volver"></ion-back-button>
+      <ion-back-button [defaultHref]="'/historial'"></ion-back-button>
     </ion-buttons>
-    <ion-title style="font-weight: 700;">Detalle de Asistencia</ion-title>
+
+    <ion-title>
+      <div class="header-with-title">
+        <a routerLink="/admin" class="logo-link">
+          <img src="assets/icon/favicon.png" alt="CDL Kids Logo" class="header-logo" />
+        </a>
+        <span class="page-title-text">Detalle de Asistencia</span>
+      </div>
+    </ion-title>
+
     <ion-buttons slot="end">
       <ion-button (click)="exportarPdf()" title="Imprimir PDF">
         <ion-icon name="print-outline" slot="icon-only"></ion-icon>

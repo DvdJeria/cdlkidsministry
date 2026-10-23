@@ -24,7 +24,11 @@ export class AsistenciaService {
 
   // 2. Obtener listado de Maestros
   obtenerMaestros(): Observable<Maestro[]> {
-    const promise = supabase.from('maestros').select('*').order('ma_nombre', { ascending: true });
+    const promise = supabase
+      .from('maestros')
+      .select('*')
+      .order('ma_nombre', { ascending: true })
+      .not('is_deleted', 'eq', true);
     return from(promise).pipe(
       map(response => {
         if (response.error) throw response.error;

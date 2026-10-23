@@ -3,15 +3,16 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/admin" text=""></ion-back-button>
     </ion-buttons>
-    <ion-title style="font-weight: 700;">Gestion de Alumnos</ion-title>
-
-    <!--
-    <ion-buttons slot="end">
-      <ion-button (click)="imprimirListado()" title="Imprimir Listado">
-        <ion-icon name="print-outline" slot="icon-only"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    -->
+    <ion-title>
+      <div class="header-with-title">
+        <!-- Logo clickeable que lleva al admin -->
+        <a routerLink="/admin" class="logo-link">
+          <img src="assets/icon/favicon.png" alt="CDL Kids Logo" class="header-logo" />
+        </a>
+        <!-- Título específico de la página actual -->
+        <span class="page-title-text">Gestión de niños</span>
+      </div>
+    </ion-title>
 
   </ion-toolbar>
 </ion-header>

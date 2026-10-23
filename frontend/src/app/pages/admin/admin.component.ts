@@ -8,7 +8,8 @@ import {
 } from '@ionic/angular';
 import { AuthService } from '../../services/auth';
 import { addIcons } from 'ionicons';
-import { addOutline, createOutline, trashOutline, printOutline, logOutOutline } from 'ionicons/icons';
+import { addOutline, createOutline, trashOutline, printOutline, logOutOutline, sunnyOutline, moonOutline, } from 'ionicons/icons';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-admin',
@@ -24,13 +25,18 @@ import { addOutline, createOutline, trashOutline, printOutline, logOutOutline } 
 export class AdminComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
+  public themeService = inject(ThemeService);
 
   constructor() {
-    addIcons({ addOutline, createOutline, trashOutline, printOutline, logOutOutline });
+    addIcons({ addOutline, createOutline, trashOutline, printOutline, logOutOutline, sunnyOutline, moonOutline });
   }
 
   async logout() {
     await this.authService.logout();
     this.router.navigate(['/login']);
+  }
+
+  toggleTheme() {
+    this.themeService.toggleTheme();
   }
 }

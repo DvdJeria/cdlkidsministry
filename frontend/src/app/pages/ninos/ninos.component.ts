@@ -10,6 +10,7 @@ import {
 import { addIcons } from 'ionicons';
 import { addOutline, createOutline, trashOutline, printOutline } from 'ionicons/icons';
 import { supabase } from '../../services/supabase.client';
+import { RouterLink } from '@angular/router';
 
 interface Nino {
   ni_id?: number;
@@ -35,7 +36,8 @@ interface Curso {
     IonContent, IonHeader, IonTitle, IonToolbar, IonButtons,
     IonButton, IonIcon, IonList, IonItem, IonLabel, IonSpinner,
     IonModal, IonInput, IonSelect, IonSelectOption,
-    IonAlert, IonAccordionGroup, IonAccordion, IonBackButton
+    IonAlert, IonAccordionGroup, IonAccordion, IonBackButton,
+    RouterLink
   ]
 })
 export class NinosComponent implements OnInit {
