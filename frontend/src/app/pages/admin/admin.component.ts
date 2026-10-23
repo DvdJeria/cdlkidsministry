@@ -7,6 +7,8 @@ import {
   IonIcon
 } from '@ionic/angular';
 import { AuthService } from '../../services/auth';
+import { addIcons } from 'ionicons';
+import { addOutline, createOutline, trashOutline, printOutline, logOutOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-admin',
@@ -22,6 +24,10 @@ import { AuthService } from '../../services/auth';
 export class AdminComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
+
+  constructor() {
+    addIcons({ addOutline, createOutline, trashOutline, printOutline, logOutOutline });
+  }
 
   async logout() {
     await this.authService.logout();

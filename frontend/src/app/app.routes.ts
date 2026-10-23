@@ -44,5 +44,10 @@ export const routes: Routes = [
     path: 'ninos',
     loadComponent: () => import('./pages/ninos/ninos.component').then(m => m.NinosComponent),
     canActivate: [authGuard]
+  },
+  {
+    path: 'maestros',
+    loadComponent: () => import('./pages/maestros/maestros.component').then(m => m.MaestrosComponent),
+    canActivate: [authGuard]
   }
 ];

@@ -27,6 +27,17 @@ ON maestros
 FOR SELECT 
 USING (true);
 
+CREATE POLICY "Permitir insertar maestros" 
+ON maestros 
+FOR INSERT 
+WITH CHECK (true);
+
+CREATE POLICY "Permitir actualizar maestros" 
+ON maestros 
+FOR UPDATE 
+USING (true) 
+WITH CHECK (true);
+
 
 -- =====================================================================
 -- 4. TABLA: ninos (GET)

@@ -2,8 +2,8 @@
   <ion-toolbar color="primary">
     <ion-title>Panel Administrativo</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="logout()" color="light">
-        Cerrar Sesión
+      <ion-button (click)="logout()" title="Cerrar Sesión" color="danger">
+        <ion-icon name="log-out-outline" slot="icon-only"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -24,7 +24,7 @@
       </ion-card-content>
     </ion-card>
 
-    <ion-card routerLink="/admin/maestros" style="cursor: pointer; margin-bottom: 16px; border-radius: 12px;">
+    <ion-card routerLink="/maestros" style="cursor: pointer; margin-bottom: 16px; border-radius: 12px;">
       <ion-card-header>
         <ion-card-title>Gestión de Maestros</ion-card-title>
       </ion-card-header>
