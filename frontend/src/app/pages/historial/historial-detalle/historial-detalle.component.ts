@@ -1,6 +1,6 @@
 import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import {
   IonContent, IonHeader, IonTitle, IonToolbar, IonButtons,
   IonBackButton, IonItem, IonLabel, IonList, IonSpinner,
@@ -28,7 +28,7 @@ interface DetalleAsistenciaNino {
     IonContent, IonHeader, IonTitle, IonToolbar, IonButtons,
     IonBackButton, IonItem, IonLabel, IonList, IonSpinner,
     IonBadge, IonCard, IonCardContent, IonText, IonButton,
-    IonIcon
+    IonIcon, RouterLink
   ]
 })
 export class HistorialDetalleComponent implements OnInit {

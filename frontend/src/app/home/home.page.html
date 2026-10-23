@@ -1,9 +1,22 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>CDL Kids</ion-title>
+    <ion-title>
+      <div class="header-logo-title">
+        <img src="assets/icon/favicon.png" alt="CDL Kids Logo" class="header-logo" />
+        <span style="text-align: center">CDL KIDS</span>
+      </div>
+    </ion-title>
 
     <!-- Botón de Login que acabamos de agregar -->
     <ion-buttons slot="end">
+
+      <ion-button (click)="toggleTheme()" title="Cambiar tema">
+        <ion-icon
+          [name]="themeService.darkMode ? 'sunny-outline' : 'moon-outline'"
+          slot="icon-only">
+        </ion-icon>
+      </ion-button>
+
       <ion-button routerLink="/login">
         <ion-icon name="log-in-outline" slot="start"></ion-icon>
       </ion-button>

@@ -1,0 +1,28 @@
+/* Contenedor que alinea el logo y el título horizontalmente */
+.header-with-title {
+  display: flex;
+  align-items: center;
+  gap: 12px; // Espacio entre el logo y el texto
+}
+
+/* Estilo para asegurar que el enlace del logo no rompa la estructura */
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Tamaño controlado del logo */
+.header-logo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Estilo del texto de la página */
+.page-title-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: inherit;
+}

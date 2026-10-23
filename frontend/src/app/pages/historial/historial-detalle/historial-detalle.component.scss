@@ -17,10 +17,73 @@
   ion-content {
     --background: white !important;
     color: black !important;
+    overflow: visible !important;
   }
 
   ion-card {
     box-shadow: none !important;
     border: 1px solid #ccc !important;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
+
+  /* ELIMINAR LA BARRA DE DESPLAZAMIENTO Y FORZAR FLUJO LIBRE */
+  html,
+  body,
+  ion-app,
+  ion-router-outlet,
+  .ion-page,
+  ion-content,
+  .ion-content-scroll-host,
+  .inner-scroll,
+  scroll-content {
+    position: static !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: visible !important;
+    contain: none !important;
+    display: block !important;
+  }
+
+  /* Asegurar que las listas y contenedores muestren todo hasta el final */
+  ion-list,
+  ion-item,
+  div,
+  section {
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  ion-item {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* Contenedor que alinea el logo y el título horizontalmente (Intacto) */
+.header-with-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.header-logo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+.page-title-text {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: inherit;
 }

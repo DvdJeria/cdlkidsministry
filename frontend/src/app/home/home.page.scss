@@ -25,3 +25,17 @@
 #container a {
   text-decoration: none;
 }
+
+/* Contenedor principal que une imagen y texto */
+.header-logo-title {
+  display: flex;
+  align-items: center; /* Esto es lo que centra verticalmente el texto respecto al logo */
+  gap: 12px;           /* Espacio entre el logo y el texto */
+}
+
+/* Ajuste del tamaño y proporción del logo en la barra */
+.header-logo {
+  height: 40px;        /* Altura ideal para la barra de navegación */
+  width: auto;         /* Mantiene la proporción original para que no se deforme */
+  object-fit: contain;
+}

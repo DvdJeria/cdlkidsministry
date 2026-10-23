@@ -19,7 +19,8 @@ import {
 } from '@ionic/angular';
 
 import { addIcons } from 'ionicons';
-import { logInOutline } from 'ionicons/icons';
+import { logInOutline, sunnyOutline, moonOutline } from 'ionicons/icons';
+import { ThemeService} from "../services/theme.service";
 
 @Component({
   selector: 'app-home',
@@ -52,12 +53,18 @@ export class HomePage implements OnInit {
   cursos: Curso[] = [];
   cargando: boolean = true;
 
+  public themeService = inject(ThemeService);
+
   constructor() {
-    addIcons({ logInOutline });
+    addIcons({ logInOutline, sunnyOutline, moonOutline });
   }
 
   ngOnInit() {
     this.cargarCursos();
+  }
+
+  toggleTheme() {
+    this.themeService.toggleTheme();
   }
 
   cargarCursos() {

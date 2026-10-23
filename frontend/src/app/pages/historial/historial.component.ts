@@ -1,6 +1,6 @@
 import { Component, OnInit, inject, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import {
   IonContent, IonHeader, IonTitle, IonToolbar, IonButtons,
   IonBackButton, IonAccordionGroup, IonAccordion, IonItem,
@@ -29,7 +29,7 @@ interface GrupoFecha {
     CommonModule,
     IonContent, IonHeader, IonTitle, IonToolbar, IonButtons,
     IonBackButton, IonAccordionGroup, IonAccordion, IonItem,
-    IonLabel, IonList, IonIcon, IonText, IonSpinner
+    IonLabel, IonList, IonIcon, IonText, IonSpinner, RouterLink
   ]
 })
 export class HistorialComponent implements OnInit {
